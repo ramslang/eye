@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pestection Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <div class="bg-gray-800 md:w-64 w-full md:h-screen h-auto text-white">
+            <div class="flex items-center justify-center h-16">
+                <span class="text-xl font-semibold">Pestection <span class="font-bold">Admin</span></span>
+            </div>
+            <nav class="flex flex-col px-4 py-2 space-y-2">
+                <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:bg-gray-700 rounded-md">
+                    <span class="material-icons">account_tree</span>
+                    <span>CNN Model</span>
+                </a>
+                <a href="#" class="flex items-center space-x-2 py-2 px-3 hover:bg-gray-700 rounded-md">
+                    <span class="material-icons">image</span>
+                    <span>Image Classification</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold">Image Classification</h1>
+                <div class="flex items-center space-x-3">
+                    <img src="/logo2.png" alt="User avatar" class="rounded-full">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Input Image -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-lg font-semibold mb-4">Input Image</h2>
+                    <form action="#" method="POST" enctype="multipart/form-data">
+                        <div class="flex flex-col space-y-4">
+                            <input type="file" id="file_input" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none">
+                            <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Classification Result -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-lg font-semibold mb-4">Classification Result</h2>
+                    {% if prediction %}
+                        <div class="flex items-center space-x-4">
+                            <img src="path/to/prediction-image" alt="Prediction Image" class="h-12 w-12 object-cover rounded">
+                            <div>
+                                <h3 class="text-md font-bold">CNN Model Prediction:</h3>
+                                <p class="text-gray-700">{{ prediction }}</p>
+                            </div>
+                        </div>
+                    {% else %}
+                        <p class="text-gray-500">No prediction available.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://fonts.googleapis.com/icon?family=Material+Icons"></script>
+</body>
+</html>
